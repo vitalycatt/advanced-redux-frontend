@@ -2,6 +2,7 @@ import "./App.css";
 import { FC, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "./hooks/redux";
 import { fetchUsers } from "./store/reducers/ActionCreators";
+import PostsContainer from "./components/PostsContainer";
 
 export const App: FC = () => {
   const dispatch = useAppDispatch();
@@ -23,9 +24,11 @@ export const App: FC = () => {
       }}
       className="App"
     >
-      {isLoading && <h1>Is Loading...</h1>}
+      {/* {isLoading && <h1>Is Loading...</h1>}
       {error && <h1>{error}</h1>}
-      {JSON.stringify(users, null, 2)}
+      {JSON.stringify(users, null, 2)} */}
+
+      <PostsContainer />
     </div>
   );
 };

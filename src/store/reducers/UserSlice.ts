@@ -1,4 +1,5 @@
 import { IUser } from "../../models/IUser";
+import { fetchUsers } from "./ActionCreators";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 interface UserState {
@@ -16,20 +17,27 @@ const initialState: UserState = {
 export const userSlise = createSlice({
   name: "user",
   initialState,
-  reducers: {
-    usersFetching(state) {
-      state.isLoading = true;
-    },
-    usersFetchingSuccess(state, action: PayloadAction<IUser[]>) {
-      state.isLoading = false;
-      state.error = "";
-      state.users = action.payload;
-    },
-    usersFetchingError(state, action: PayloadAction<string>) {
-      state.isLoading = false;
-      state.error = action.payload;
-    },
-  },
+  reducers: {},
+
+  // TODO: NEED TO FIX PROBLEM WITH 'ADDCASE'
+  // extraReducers: (builder) => {
+  //   builder
+  //     .addCase(
+  //       fetchUsers.fulfilled,
+  //       (state, action: PayloadAction<IUser[]>) => {
+  //         state.isLoading = false;
+  //         state.error = "";
+  //         state.users = action.payload;
+  //       }
+  //     )
+  //     .addCase(fetchUsers.rejected, (state, action: PayloadAction<string>) => {
+  //       state.isLoading = false;
+  //       state.error = action.payload;
+  //     })
+  //     .addCase(fetchUsers.pending, (state) => {
+  //       state.isLoading = true;
+  //     });
+  // },
 });
 
 export default userSlise.reducer;

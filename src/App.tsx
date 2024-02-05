@@ -1,8 +1,8 @@
 import "./App.css";
+import PostsContainer from "./components/PostsContainer";
+import { fetchUsers } from "./store/reducers/ActionCreators";
 import { FC, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "./hooks/redux";
-import { fetchUsers } from "./store/reducers/ActionCreators";
-import PostsContainer from "./components/PostsContainer";
 
 export const App: FC = () => {
   const dispatch = useAppDispatch();
